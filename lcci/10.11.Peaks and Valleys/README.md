@@ -1,0 +1,65 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.11.Peaks%20and%20Valleys/README_EN.md
+---
+
+<!-- problem:start -->
+
+# [10.11. Peaks and Valleys](https://leetcode.cn/problems/peaks-and-valleys-lcci)
+
+[Chinese Version](/lcci/10.11.Peaks%20and%20Valleys/README.md)
+
+## Description
+
+<!-- description:start -->
+
+<p>In an array of integers, a &quot;peak&quot; is an element which is greater than or equal to the adjacent integers and a &quot;valley&quot; is an element which is less than or equal to the adjacent inte&shy;gers. For example, in the array {5, 8, 6, 2, 3, 4, 6}, {8, 6} are peaks and {5, 2} are valleys. Given an array of integers, sort the array into an alternating sequence of peaks and valleys.</p>
+<p><strong>Example:</strong></p>
+<pre>
+
+<strong>Input: </strong>[5, 3, 1, 2, 3]
+
+<strong>Output:</strong>&nbsp;[5, 1, 3, 2, 3]
+
+</pre>
+<p><strong>Note: </strong></p>
+<ul>
+	<li><code>nums.length &lt;= 10000</code></li>
+</ul>
+
+<!-- description:end -->
+
+## Solutions
+
+<!-- solution:start -->
+
+### Solution 1: Sorting
+
+We first sort the array, and then traverse the array and swap the elements at even indices with their next element.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Java
+
+```java
+class Solution {
+    public void wiggleSort(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        for (int i = 0; i < n - 1; i += 2) {
+            int t = nums[i];
+            nums[i] = nums[i + 1];
+            nums[i + 1] = t;
+        }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->
